@@ -1,0 +1,31 @@
+<html>
+
+<body>
+  <h1>Simulate scanned document</h1>
+
+  <button onclick="start()">Orchestrate it!</button>
+
+  <div>&nbsp;</div>
+
+  <div id="thanks"></div>
+
+  <embed src="/insurance_claim_letter.pdf" width="100%" height="100%"
+         type="application/pdf">
+
+</body>
+
+<script type="text/javascript">
+		function start() {
+		     $('#thanks').html('');
+			 $.ajax({
+              url: "./claim",
+              type: "put",
+              data: {}
+          }).done(function(result) {
+            $('#thanks').html('Process successfully started - go to <a href="' + result + '">' + result + '</a>');
+          })
+		}
+</script>
+<script src="/webjars/jquery/3.6.0/jquery.min.js"></script>
+
+</html>

@@ -1,0 +1,107 @@
+<html>
+<body style="background-color:black;">
+
+<style>
+table {
+  font-family: courier;
+  font-size: 40px;
+  border-collapse: collapse;
+  width: 45%;
+}
+
+td, th {
+  color: powderblue;
+  text-align: left;
+}
+
+td:nth-child(even) {
+  color: green;
+}
+
+input[type=text] {
+  border: none;
+  font-family: Courier;
+  font-size: 40px;
+  background-color: black;
+  color: powderblue;
+  text-align: left;
+  border-bottom: 2px solid green;
+}
+
+@keyframes blinker {
+  0%, 100% { opacity: 0.3; }
+  50% { opacity: 1; }
+}
+
+input[type=label] {
+  animation: blinker 1s linear infinite;
+  border: none;
+  font-family: Courier;
+  font-size: 40px;
+  background-color: black;
+  color: orange;
+  text-align: left;
+}
+</style>
+
+<h2 style="color:white;font-family:Courier;font-size:50px;text-align:left">CLAIM CREATION</h2>
+
+<table>
+  <tr>
+    <td>DATE OF ACCIDENT:</td>
+    <td><input type="text" name="DateOfAccident" id="dateOfAccident"/></td>
+  </tr>
+  <tr>
+    <td>POLICY NUMBER:</td>
+    <td><input type="text" name="PolicyNumber" id="policyNumber"/></td>
+  </tr>
+  <tr>
+    <td>POLICY TYPE:</td>
+    <td><input type="text" name="PolicyType" id="policyType"/></td>
+  </tr>
+  <tr>
+    <td style="text-align:left;color:orange;font-family:Courier;font-size:40px">CLAIM NUMBER:</td>
+    <td><input type="label" name="ClaimNumber" id="claimNumber"/></td>
+  </tr>
+</table>
+
+
+<p style="text-align:left;color:red;font-family:Courier;font-size:40px">ERROR MESSAGES:</p>
+<p style="text-align:left;color:yellow;font-family:Courier;font-size:40px">PF KEYS: PF1=HELP    PF3=EXIT PF5=UPDATE</p>
+<a id="secretLink" onclick="createPolicyNumber();">test</a>
+
+</body>
+
+<script src="/webjars/jquery/3.6.0/jquery.min.js"></script>
+<script type="text/javascript">
+
+  function createPolicyNumber() {
+      $.ajax({
+            url: "/policy/newNumber",
+            type: "get",
+            data: {}
+      }).done(function(result) {
+            $('#claimNumber').val(result);
+      })
+  }
+
+  $("#dateOfAccident").keyup(function(event) {
+    if (event.keyCode === 13) {
+       createPolicyNumber();
+    }
+  });
+  $("#policyNumber").keyup(function(event) {
+    if (event.keyCode === 13) {
+       createPolicyNumber();
+    }
+  });
+  $("#policyType").keyup(function(event) {
+    if (event.keyCode === 13) {
+       createPolicyNumber();
+    }
+  });
+
+
+</script>
+
+</html>
