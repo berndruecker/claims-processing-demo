@@ -19,8 +19,8 @@ public class StartClaimHandlingRestController {
   @Autowired
   private ZeebeClient client;
 
-  @Value("${recipient.demo.email}")
-  private String recipientDemoEmail;
+  //@Value("${recipient.demo.email}")
+  //private String recipientDemoEmail;
 
   @Value("${operate.base.url}")
   private String operateBaseUrl;
@@ -37,7 +37,7 @@ public class StartClaimHandlingRestController {
     //variables.put("automaticProcessing", true);
     //variables.put("someInput", "yeah");
     //variables.put("customerName", "Bernd Ruecker");
-    variables.put("customerEmail", recipientDemoEmail);
+    //variables.put("customerEmail", recipientDemoEmail);
 
     ProcessInstanceEvent processClaimHandling = client.newCreateInstanceCommand() //
             .bpmnProcessId("processClaimHandling") //
