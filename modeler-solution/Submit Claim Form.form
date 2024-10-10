@@ -1,0 +1,55 @@
+{
+  "executionPlatform": "Camunda Cloud",
+  "executionPlatformVersion": "8.5.0",
+  "exporter": {
+    "name": "Camunda Web Modeler",
+    "version": "0c3ed06"
+  },
+  "schemaVersion": 16,
+  "id": "FormSubmitClaim",
+  "components": [
+    {
+      "text": "# Simulate incoming document \n\nThis letter was scanned, categorized by and AI and would automatically trigger the **car insurnance claim handling** process.",
+      "label": "Text view",
+      "type": "text",
+      "layout": {
+        "row": "Row_1hmp7kx",
+        "columns": null
+      },
+      "id": "Field_1upbtoo"
+    },
+    {
+      "security": {
+        "allowScripts": true,
+        "allowSameOrigin": true,
+        "fullscreen": false,
+        "allowForms": true,
+        "allowModals": true,
+        "allowPopups": true,
+        "allowTopNavigation": true,
+        "allowStorageAccessByUserActivation": true
+      },
+      "label": "Preview",
+      "type": "iframe",
+      "layout": {
+        "row": "Row_0d74zvr",
+        "columns": null
+      },
+      "id": "Field_0dzww8r",
+      "url": "=documentUrl",
+      "height": 500
+    },
+    {
+      "label": "Document URL",
+      "type": "textfield",
+      "layout": {
+        "row": "Row_0mi0mo5",
+        "columns": null
+      },
+      "id": "Field_0i2d1a4",
+      "key": "documentUrl",
+      "defaultValue": "https://drive.google.com/file/d/1-ZCGFw8DiwDWUMI8oJp-QB5zql58FRL1/preview"
+    }
+  ],
+  "type": "default"
+}

@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<definitions xmlns="https://www.omg.org/spec/DMN/20191111/MODEL/" xmlns:dmndi="https://www.omg.org/spec/DMN/20191111/DMNDI/" xmlns:dc="http://www.omg.org/spec/DMN/20180521/DC/" xmlns:modeler="http://camunda.org/schema/modeler/1.0" id="Definitions_1fwvv1w" name="DRD" namespace="http://camunda.org/schema/1.0/dmn" exporter="Camunda Web Modeler" exporterVersion="0c3ed06" modeler:executionPlatform="Camunda Cloud" modeler:executionPlatformVersion="8.5.0">
+  <decision id="autoApproval" name="Auto Approval">
+    <decisionTable id="DecisionTable_1u8nkqm" hitPolicy="FIRST">
+      <input id="InputClause_119lzys" label="Coverage Type">
+        <inputExpression id="LiteralExpression_1ilhmeu" typeRef="string">
+          <text>policy.coverageType</text>
+        </inputExpression>
+        <inputValues id="UnaryTests_0fzj6i6">
+          <text>"BASIC","COMPREHENSIVE","FULL COMPREHENSIVE","EXTENDED"</text>
+        </inputValues>
+      </input>
+      <input id="InputClause_0tbfbl9" label="Claim value">
+        <inputExpression id="LiteralExpression_1uvq3kp" typeRef="number">
+          <text>claimValue
+</text>
+        </inputExpression>
+      </input>
+      <output id="Output_1" label="Auto approval?" name="autoApproval" typeRef="boolean" />
+      <rule id="DecisionRule_1kyowku">
+        <inputEntry id="UnaryTests_09274gn">
+          <text>"BASIC"</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_0v40exj">
+          <text>&gt; 500</text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_11js6yo">
+          <text>false</text>
+        </outputEntry>
+      </rule>
+      <rule id="DecisionRule_0kza3i7">
+        <inputEntry id="UnaryTests_061hpjv">
+          <text>"COMPREHENSIVE","FULL COMPREHENSIVE"</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_10wefy5">
+          <text>&gt; 1400</text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_1aobgr0">
+          <text>false</text>
+        </outputEntry>
+      </rule>
+      <rule id="DecisionRule_0516bzr">
+        <inputEntry id="UnaryTests_0nu9rtr">
+          <text>"EXTENDED"</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_1u3bdcy">
+          <text>&gt; 2500</text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_1pln0vf">
+          <text>false</text>
+        </outputEntry>
+      </rule>
+      <rule id="DecisionRule_0alm0pw">
+        <inputEntry id="UnaryTests_0l20r2h">
+          <text></text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_0x21dr7">
+          <text></text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_0n1m6bh">
+          <text>true</text>
+        </outputEntry>
+      </rule>
+    </decisionTable>
+  </decision>
+  <dmndi:DMNDI>
+    <dmndi:DMNDiagram>
+      <dmndi:DMNShape dmnElementRef="autoApproval">
+        <dc:Bounds height="80" width="180" x="160" y="100" />
+      </dmndi:DMNShape>
+    </dmndi:DMNDiagram>
+  </dmndi:DMNDI>
+</definitions>

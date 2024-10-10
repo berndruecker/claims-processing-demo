@@ -1,0 +1,187 @@
+{
+  "executionPlatform": "Camunda Cloud",
+  "executionPlatformVersion": "8.5.0",
+  "exporter": {
+    "name": "Camunda Web Modeler",
+    "version": "ac16d31"
+  },
+  "schemaVersion": 16,
+  "id": "FormReviewClaim",
+  "components": [
+    {
+      "text": "### Review claim",
+      "type": "text",
+      "id": "Heading_0",
+      "layout": {
+        "row": "row_0",
+        "columns": null
+      }
+    },
+    {
+      "text": "##### Decision",
+      "label": "Text view",
+      "type": "text",
+      "layout": {
+        "row": "Row_0sni0t6",
+        "columns": null
+      },
+      "id": "Field_0ct3fva"
+    },
+    {
+      "text": "Please approve or disapprove the claim using the information below:",
+      "label": "Text view",
+      "type": "text",
+      "layout": {
+        "row": "Row_1212x8g",
+        "columns": null
+      },
+      "id": "Field_0l0arq4"
+    },
+    {
+      "label": "Claim approved",
+      "type": "checkbox",
+      "layout": {
+        "row": "Row_1c37mxe",
+        "columns": null
+      },
+      "id": "Field_0jvfepw",
+      "key": "manualApproval"
+    },
+    {
+      "label": "Comments (not visible to customer)",
+      "type": "textarea",
+      "layout": {
+        "row": "Row_1rgonc3",
+        "columns": null
+      },
+      "id": "Field_0slsf4p",
+      "key": "internalComments"
+    },
+    {
+      "label": "Rejection reason",
+      "type": "textarea",
+      "layout": {
+        "row": "Row_0xa7x3r",
+        "columns": null
+      },
+      "id": "Field_0oal1um",
+      "key": "rejectionReason",
+      "conditional": {
+        "hide": "=manualApproval"
+      }
+    },
+    {
+      "text": "##### Claim",
+      "type": "text",
+      "id": "Subheading_1",
+      "layout": {
+        "row": "row_1",
+        "columns": null
+      }
+    },
+    {
+      "label": "Date of Claim",
+      "type": "textfield",
+      "layout": {
+        "row": "row_2",
+        "columns": null
+      },
+      "id": "Field_0vwqtwx",
+      "key": "date",
+      "disabled": false,
+      "readonly": true
+    },
+    {
+      "label": "Type of Claim",
+      "type": "textfield",
+      "layout": {
+        "row": "row_2",
+        "columns": null
+      },
+      "id": "Field_0kacxxu",
+      "key": "typeOfClaim",
+      "disabled": false,
+      "readonly": true
+    },
+    {
+      "label": "Claim Value",
+      "type": "textfield",
+      "layout": {
+        "row": "Row_1bsx5gi",
+        "columns": null
+      },
+      "id": "Field_0l7fske",
+      "key": "claimValue",
+      "disabled": false
+    },
+    {
+      "type": "textfield",
+      "id": "Textfield_2",
+      "label": "Policy Number",
+      "validate": {
+        "minLength": 6,
+        "required": true
+      },
+      "key": "policyNumber",
+      "layout": {
+        "row": "Row_04fp48r",
+        "columns": null
+      },
+      "disabled": false,
+      "readonly": true
+    },
+    {
+      "type": "textarea",
+      "id": "Textarea_7",
+      "label": "Additional Information",
+      "validate": {
+        "minLength": 10,
+        "maxLength": 1000,
+        "required": false
+      },
+      "key": "additionalInformation",
+      "layout": {
+        "row": "row_5",
+        "columns": null
+      }
+    },
+    {
+      "text": "##### Document(s)",
+      "label": "Text view",
+      "type": "text",
+      "layout": {
+        "row": "Row_13jzn2r",
+        "columns": null
+      },
+      "id": "Field_17is0lh"
+    },
+    {
+      "security": {
+        "allowScripts": true,
+        "allowSameOrigin": true
+      },
+      "label": "iFrame",
+      "type": "iframe",
+      "layout": {
+        "row": "Row_0pc2kuv",
+        "columns": null
+      },
+      "id": "Field_1uvpsbk",
+      "url": "=documentUrl",
+      "height": 500
+    },
+    {
+      "label": "Document URL",
+      "type": "textfield",
+      "layout": {
+        "row": "Row_0ixcftv",
+        "columns": null
+      },
+      "id": "Field_0z3iybo",
+      "key": "documentUrl",
+      "defaultValue": "https://drive.google.com/file/d/1-ZCGFw8DiwDWUMI8oJp-QB5zql58FRL1/preview"
+    }
+  ],
+  "generated": true,
+  "type": "default"
+}
