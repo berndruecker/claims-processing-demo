@@ -17,18 +17,18 @@ Generate Claim on HOST system
 *** Keywords ***
 Open the form
     New Browser   headless=false
-    New Page      http://localhost:8080/host.html    
+    New Page      https://claim-handling-fakes-617934349805.australia-southeast1.run.app/host.html    
 
 Fill the form    
     Fill Text    //input[@id="dateOfAccident"]    ${claim}[date]
     Fill Text    //input[@id="policyNumber"]    ${claim}[policyId]
     Fill Text    //input[@id="policyType"]    ${claim}[policyType]    
-    Sleep    2s
+    Sleep    3s
     Click        xpath=//*[@id='secretLink']
+    Sleep    3s
 
 Collect the result
     ${claimNumber}=   Get Property    //input[@id="claimNumber"]      value
     Set Output Variable	claimNumber	${claimNumber}
-    Sleep    2s
     Take Screenshot  %{ROBOT_ARTIFACTS}${/}result
     Close Browser

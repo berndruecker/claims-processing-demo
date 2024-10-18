@@ -1,10 +1,10 @@
 {
   "$schema": "https://unpkg.com/@camunda/zeebe-element-templates-json-schema/resources/schema.json",
   "name": "S_4HANA Credit Memo",
-  "id": "d65b88a7-a20b-4ee1-9bd0-afef5c5edbfa",
-  "version": 1728380792848,
+  "id": "a5322882-b41f-4f8d-b79c-2d4f3a5ab817",
+  "version": 1728987444939,
   "appliesTo": [
-    "bpmn:Task"
+    "bpmn:ServiceTask"
   ],
   "groups": [
     {
@@ -122,7 +122,7 @@
     {
       "id": "quantity",
       "label": "Quantity",
-      "value": "1",
+      "value": "158",
       "group": "sap",
       "binding": {
         "name": "quantity",
@@ -132,7 +132,7 @@
     },
     {
       "id": "payload",
-      "value": "={\"CreditMemoRequestType\":\"CR\",\"SalesOrganization\": salesOrg,\"DistributionChannel\":\"10\",\"OrganizationDivision\":\"00\",\"SoldToParty\":\"17100002\",\"PurchaseOrderByCustomer\":\"Created via Camunda SAP Integration\",\"to_Item\":[{\"CreditMemoRequestItem\":\"10\",\"Material\":\"TG11\",\"RequestedQuantity\": quantity}]}",
+      "value": "={\"CreditMemoRequestType\":\"CR\",\"SalesOrganization\": salesOrg,\"DistributionChannel\":\"10\",\"OrganizationDivision\":\"00\",\"SoldToParty\":\"17100002\",\"PurchaseOrderByCustomer\":\"Claim \" + claimNumber + \" (via Camunda)\",\"to_Item\":[{\"CreditMemoRequestItem\":\"10\",\"Material\":\"TG11\",\"RequestedQuantity\": quantity}]}",
       "binding": {
         "name": "payload",
         "type": "zeebe:input"

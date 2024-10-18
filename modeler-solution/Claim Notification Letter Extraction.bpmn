@@ -42,7 +42,7 @@
         </zeebe:ioMapping>
         <zeebe:taskHeaders>
           <zeebe:header key="resultVariable" value="LLMresponse" />
-          <zeebe:header key="resultExpression" value="={&#10;  &#34;jsonString&#34;: response.messagesHistory[2].message,&#10; &#34;date&#34;:  substring before(substring after(jsonString, &#34;\&#34;date\&#34;: \&#34;&#34;), &#34;\&#34;&#34;),&#10;  &#34;typeOfClaim&#34;:  substring before(substring after(jsonString, &#34;\&#34;typeOfClaim\&#34;: \&#34;&#34;), &#34;\&#34;&#34;),&#10;  &#34;policyNumber&#34;:  substring before(substring after(jsonString, &#34;\&#34;policyNumber\&#34;: \&#34;&#34;), &#34;\&#34;&#34;),&#10;  &#34;test1&#34;: substring after(jsonString, &#34;\&#34;customer information\&#34;:&#34;),&#10;  &#34;test2&#34;:  substring before(substring after(jsonString, &#34;\&#34;customer information\&#34;:&#34;), &#34;\},&#34;),&#10;  &#34;test3&#34;:  substring before(   substring after(jsonString, &#34;\&#34;customer information\&#34;:&#34;) , &#34;\}&#34;),&#10;  &#34;customerInformation&#34;: {&#10;    &#34;name&#34;: substring before(substring after(jsonString, &#34;\&#34;name\&#34;: \&#34;&#34;), &#34;\&#34;&#34;),&#10;    &#34;address&#34;: substring before(substring after(jsonString, &#34;\&#34;address\&#34;: \&#34;&#34;), &#34;\&#34;&#34;),&#10;    &#34;phone&#34;: substring before(substring after(jsonString, &#34;\&#34;phone\&#34;: \&#34;&#34;), &#34;\&#34;&#34;),&#10;    &#34;email&#34;: substring before(substring after(jsonString, &#34;\&#34;email\&#34;: \&#34;&#34;), &#34;\&#34;&#34;)&#10;  }, &#10;  &#34;additionalInformation&#34;:  substring before(substring after(jsonString, &#34;\&#34;additionalInformation\&#34;: \&#34;&#34;), &#34;\&#34;&#34;),&#10;  &#34;claimValue&#34;: number(substring before(substring after(jsonString, &#34;\&#34;claimValue\&#34;: &#34;), &#34;\n&#34;))&#10;}" />
+          <zeebe:header key="resultExpression" value="={&#10; &#34;jsonString&#34;: response.messageHistory[2].message,&#10; &#34;date&#34;:  substring before(substring after(jsonString, &#34;\&#34;date\&#34;: \&#34;&#34;), &#34;\&#34;&#34;),&#10;  &#34;typeOfClaim&#34;:  substring before(substring after(jsonString, &#34;\&#34;typeOfClaim\&#34;: \&#34;&#34;), &#34;\&#34;&#34;),&#10;  &#34;policyNumber&#34;:  substring before(substring after(jsonString, &#34;\&#34;policyNumber\&#34;: \&#34;&#34;), &#34;\&#34;&#34;),&#10;  &#34;customerInformation&#34;: {&#10;    &#34;name&#34;: substring before(substring after(jsonString, &#34;\&#34;name\&#34;: \&#34;&#34;), &#34;\&#34;&#34;),&#10;    &#34;address&#34;: substring before(substring after(jsonString, &#34;\&#34;address\&#34;: \&#34;&#34;), &#34;\&#34;&#34;),&#10;    &#34;phone&#34;: substring before(substring after(jsonString, &#34;\&#34;phone\&#34;: \&#34;&#34;), &#34;\&#34;&#34;),&#10;    &#34;email&#34;: substring before(substring after(jsonString, &#34;\&#34;email\&#34;: \&#34;&#34;), &#34;\&#34;&#34;)&#10;  }, &#10;  &#34;additionalInformation&#34;:  substring before(substring after(jsonString, &#34;\&#34;additionalInformation\&#34;: \&#34;&#34;), &#34;\&#34;&#34;),&#10;  &#34;claimValue&#34;: number(substring before(substring after(jsonString, &#34;\&#34;claimValue\&#34;: &#34;), &#34;\n&#34;))&#10;}" />
           <zeebe:header key="retryBackoff" value="PT0S" />
         </zeebe:taskHeaders>
       </bpmn:extensionElements>
@@ -62,6 +62,12 @@
   </bpmn:process>
   <bpmndi:BPMNDiagram id="BPMNDiagram_IntelligentDocumentProcessing">
     <bpmndi:BPMNPlane id="BPMNPlane_IntelligentDocumentProcessing" bpmnElement="claimNotificationLetterExtraction">
+      <bpmndi:BPMNShape id="Event_0983knb_di" bpmnElement="End">
+        <dc:Bounds x="462" y="212" width="36" height="36" />
+        <bpmndi:BPMNLabel>
+          <dc:Bounds x="452" y="255" width="56" height="27" />
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNShape>
       <bpmndi:BPMNShape id="Event_1er7ukl_di" bpmnElement="Start">
         <dc:Bounds x="82" y="212" width="36" height="36" />
         <bpmndi:BPMNLabel>
@@ -75,12 +81,6 @@
       <bpmndi:BPMNShape id="Activity_1xu72p0_di" bpmnElement="Activity_0xv5bqs">
         <dc:Bounds x="170" y="190" width="100" height="80" />
         <bpmndi:BPMNLabel />
-      </bpmndi:BPMNShape>
-      <bpmndi:BPMNShape id="Event_0983knb_di" bpmnElement="End">
-        <dc:Bounds x="462" y="212" width="36" height="36" />
-        <bpmndi:BPMNLabel>
-          <dc:Bounds x="452" y="255" width="56" height="27" />
-        </bpmndi:BPMNLabel>
       </bpmndi:BPMNShape>
       <bpmndi:BPMNEdge id="Flow_0tmjy1o_di" bpmnElement="Flow_0tmjy1o">
         <di:waypoint x="410" y="230" />

@@ -1,8 +1,8 @@
 {
   "$schema": "https://unpkg.com/@camunda/zeebe-element-templates-json-schema/resources/schema.json",
   "name": "RPA Bot Invocation",
-  "id": "789c2a5d-ce3e-4a25-b093-4eb230c3df20",
-  "version": 1727860871317,
+  "id": "35dabd3e-2e6a-48bf-8164-13fa370ce1c9",
+  "version": 1728498574155,
   "appliesTo": [
     "bpmn:Task"
   ],

@@ -14,11 +14,10 @@ Generate Claim on HOST system
     Fill the form
     Collect the result
 
-
 *** Keywords ***
 Open the form
     New Browser   headless=false
-    New Page    http://localhost:8080/host2.html    
+    New Page      https://claim-handling-fakes-617934349805.australia-southeast1.run.app/host2.html    
 
 Fill the form    
     Fill Text    //input[@id="claimNumber"]    ${claim.number}

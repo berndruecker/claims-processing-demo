@@ -1,8 +1,8 @@
 {
   "$schema": "https://unpkg.com/@camunda/zeebe-element-templates-json-schema/resources/schema.json",
   "name": "Claim Notification Letter Extraction",
-  "id": "076922a2-bc45-462d-8082-2211ab9b91d0",
-  "version": 1728464650145,
+  "id": "d07040bd-2756-4978-a63a-8bafc45856b0",
+  "version": 1728498620544,
   "description": "Extracts information from insurance claim letters",
   "appliesTo": [
     "bpmn:Task",
